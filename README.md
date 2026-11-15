@@ -1,6 +1,6 @@
 # ImmunoEvo-AI: Predicting Immunotherapy Response Across Cohorts, With Tumour Evolution
 
-**Project 14 · Husain Naqvi · 2026** · computational immuno-oncology / tumour evolution · [findings write-up](docs/FINDINGS.md) · [figure gallery](https://engr-husainnaqvi.github.io/ImmunoEvo-AI/)
+**Project 14 · Husain Naqvi · 2026** · computational immuno-oncology / tumour evolution · [findings write-up](docs/FINDINGS.md) · [figure gallery](https://engr-husainnaqvi.github.io/ImmunoEvo-AI/) · [live app](https://immunoevo-studio.streamlit.app/)
 
 Only about one patient in three responds to immune-checkpoint blockade (ICB). Many published response signatures look strong in the cohort they were built in and then fail in the next one. This project asks three questions, using only public data:
 
@@ -32,9 +32,11 @@ Only about one patient in three responds to immune-checkpoint blockade (ICB). Ma
 | CD8A | 0.615 | 7 / 9 |
 | GEP-18 (Ayers 2017) | 0.606 | 8 / 9 |
 | PD-L1 (CD274) mRNA | 0.589 | 8 / 9 |
-| TIDE (published) | 0.563 | 7 / 9 |
+| TIDE (published binary responder call\*) | 0.563 | 7 / 9 |
 | LR on 20,890 genes | 0.555 | 6 / 9 |
 | **ImmunoEvo-Net (knowledge-masked deep net + cohort adversary)** | **0.541 (0.499–0.583)** | 5 / 9 |
+
+\*iAtlas distributes TIDE as a binary responder call, not the continuous score, which limits its AUC.
 
 - **The simple knowledge-programme model transfers best.** It beats TIDE (+0.064, p = 0.023), GEP-18 (+0.022, p = 0.027), PD-L1 (+0.038, p = 0.029), whole-transcriptome LR (+0.073, p < 0.001) and the deep network (+0.087, p < 0.001); all are paired cohort-stratified bootstraps.
 - **It does not significantly beat the strongest single markers.** The gaps to CD8A (+0.013, p = 0.17), IFNG-6 (+0.012, p = 0.28) and TMB (+0.005, p = 0.89) are small and not significant. The ceiling for transferable response prediction from bulk RNA is low, around 0.62–0.63.

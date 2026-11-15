@@ -28,7 +28,7 @@ Immune-checkpoint blockade (ICB) response signatures are usually developed and t
   - each with a missingness flag.
 
 **Models (all pre-specified before the LOCO results were seen):**
-- **Fixed scores:** TIDE (as published), PD-L1/CD274, CD8A, CYT, GEP-18, IFNG-6, TMB.
+- **Fixed scores:** TIDE (the published binary responder call as distributed by iAtlas; the continuous score was not available, which handicaps its AUC), PD-L1/CD274, CD8A, CYT, GEP-18, IFNG-6, TMB.
 - **Trained models:** logistic regression (L2, inner leave-one-cohort-out CV) on genes, on programmes, and on programmes + evolution covariates; random forest and gradient boosting on programmes.
 - **ImmunoEvo-Net**, a knowledge-guided deep network:
   - a sparse gene→programme layer masked by programme membership;
