@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you refer to this work, please cite it as below."
+title: "ImmunoEvo-AI: Cross-Cohort Prediction of Immunotherapy Response with Tumour-Evolution Features"
+authors:
+  - family-names: Naqvi
+    given-names: Husain
+version: 1.0.0
+date-released: 2026-11-16
+license: LicenseRef-All-Rights-Reserved
+repository-code: "https://github.com/Engr-HusainNaqvi/ImmunoEvo-AI"
+url: "https://engr-husainnaqvi.github.io/ImmunoEvo-AI/"
+keywords: [immuno-oncology, immune checkpoint blockade, tumour evolution, intratumour heterogeneity, TMB, leave-one-cohort-out, knowledge-guided neural network, tumour microenvironment]
+references:
+  - type: article
+    authors:
+      - family-names: Jiang
+        given-names: Peng
+    title: "Signatures of T cell dysfunction and exclusion predict cancer immunotherapy response"
+    journal: "Nature Medicine"
+    volume: 24
+    year: 2018
+    doi: 10.1038/s41591-018-0136-1
+  - type: article
+    authors:
+      - family-names: Samstein
+        given-names: Robert M.
+    title: "Tumor mutational load predicts survival after immunotherapy across multiple cancer types"
+    journal: "Nature Genetics"
+    volume: 51
+    year: 2019
+    doi: 10.1038/s41588-018-0312-8

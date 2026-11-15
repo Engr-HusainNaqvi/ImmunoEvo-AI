@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImmunoEvo-AI Response</title>
+<meta name="description" content="Cross-cohort prediction of immune-checkpoint-blockade response from tumour-microenvironment programmes and tumour-evolution features, validated leave-one-cohort-out over 9 public cohorts. Husain Naqvi, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfbfd;--fg:#14161a;--muted:#5b6170;--card:#ffffff;--line:#e6e8ee;--accent:#2563eb;--accent-soft:#e8efff;--warn:#b45309}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1116;--fg:#e8eaf0;--muted:#9aa1b2;--card:#161a22;--line:#262c38;--accent:#6ea0ff;--accent-soft:#1b2640;--warn:#f59e0b}}
+:root[data-theme="dark"]{--bg:#0e1116;--fg:#e8eaf0;--muted:#9aa1b2;--card:#161a22;--line:#262c38;--accent:#6ea0ff;--accent-soft:#1b2640;--warn:#f59e0b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.kicker{color:var(--accent);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:13px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:.3em 0;font-weight:800}
+.lead{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:800px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{display:inline-block;padding:9px 16px;border-radius:8px;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;font-size:14px;background:var(--card)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;margin:0 0 12px}
+h3{font-size:18px;margin:22px 0 8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.stat b{display:block;font-size:26px;color:var(--accent)}
+.stat span{color:var(--muted);font-size:13px}
+figure{margin:18px 0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{width:100%;height:auto;display:block}
+figcaption{color:#555;font-size:13px;padding:6px 4px 0}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+th:first-child,td:first-child{text-align:left}
+tr.best td{font-weight:700;color:var(--accent)}
+.note{background:var(--accent-soft);border-radius:10px;padding:14px 16px;margin:16px 0}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0}
+.chain span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px}
+.chain span.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.chain i{color:var(--muted);font-style:normal}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+footer{padding:28px 0 48px;color:var(--muted);font-size:14px}
+a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="kicker">Project 14 · Husain Naqvi · 2026</div>
+<h1>ImmunoEvo-AI: does immunotherapy-response prediction survive a new cohort?</h1>
+<p class="lead">Nine public immune-checkpoint-blockade cohorts (820 patients, five cancer types), each held out in turn. Tumour-microenvironment programmes, tumour-evolution features from sequencing panels, a knowledge-guided deep network, and paired on-treatment biopsies.</p>
+<div class="btns"><a class="btn primary" href="https://github.com/Engr-HusainNaqvi/ImmunoEvo-AI/blob/main/docs/FINDINGS.md">Findings write-up</a><a class="btn" href="https://github.com/Engr-HusainNaqvi/ImmunoEvo-AI">GitHub repository</a></div>
+</div></header>
+<main class="wrap">
+<section>
+<h2>Headline</h2>
+<div class="stats">
+<div class="stat"><b>AUC 0.628</b><span>pre-specified programme + TMB/ITH model in unseen cohorts (best of 16)</span></div>
+<div class="stat"><b>+0.064</b><span>AUC over TIDE (p = 0.023); +0.022 over GEP-18 (p = 0.027)</span></div>
+<div class="stat"><b>0.541</b><span>the deep network: it learned cohort and tissue confounders</span></div>
+<div class="stat"><b>HR 0.95, p = 0.31</b><span>clonal fraction beyond TMB (MSK, n = 1,661): panel ITH adds little</span></div>
+<div class="stat"><b>z = −4.1</b><span>mTORC1 falls more in responders on therapy (77 paired biopsies)</span></div>
+</div>
+<div class="chain"><span>20,890 genes</span><i>→</i><span class="on">73 knowledge programmes</span><i>→</i><span class="on">+ TMB, MATH, clonal fraction</span><i>→</i><span>logistic model</span><i>→</i><span>leave-one-cohort-out</span></div>
+<div class="note"><b>Negative results, reported in full:</b>
+<ul>
+<li>The knowledge-masked, cohort-adversarial deep network was specified in advance. It did not transfer (AUC 0.54), and it was not retuned after the results were seen.</li>
+<li>The best model is not significantly better than CD8A, IFN-γ or TMB alone. The ceiling for transferable prediction from bulk RNA is about 0.63.</li>
+<li>MATH and clonal fraction from targeted panels add nothing beyond TMB.</li>
+</ul></div>
+</section>
+<section>
+<h2>Leave-one-cohort-out benchmark</h2>
+<div class="tbl"><table><thead><tr><th>Method</th><th>Pooled AUC</th><th>95% CI</th><th>Cohorts with AUC &gt; 0.5</th></tr></thead><tbody><tr class="best"><td>LR: 73 knowledge programmes + TMB/ITH (pre-specified)</td><td>0.628</td><td>0.588–0.669</td><td>8 / 9</td></tr><tr class=""><td>TMB alone (n = 587)</td><td>0.622</td><td>0.573–0.669</td><td>7 / 8</td></tr><tr class=""><td>IFN-γ 6-gene</td><td>0.616</td><td>0.576–0.657</td><td>8 / 9</td></tr><tr class=""><td>CD8A</td><td>0.615</td><td>0.573–0.654</td><td>7 / 9</td></tr><tr class=""><td>CYT</td><td>0.610</td><td>0.567–0.651</td><td>8 / 9</td></tr><tr class=""><td>LR: programmes only</td><td>0.609</td><td>0.569–0.652</td><td>7 / 9</td></tr><tr class=""><td>GEP-18</td><td>0.606</td><td>0.565–0.648</td><td>8 / 9</td></tr><tr class=""><td>PD-L1 (CD274) mRNA</td><td>0.589</td><td>0.549–0.630</td><td>8 / 9</td></tr><tr class=""><td>TIDE</td><td>0.563</td><td>0.521–0.606</td><td>7 / 9</td></tr><tr class=""><td>LR: 20,890 genes</td><td>0.555</td><td>0.513–0.597</td><td>6 / 9</td></tr><tr class=""><td>ImmunoEvo-Net (deep, knowledge-masked, cohort-adversarial)</td><td>0.541</td><td>0.499–0.583</td><td>5 / 9</td></tr></tbody></table></div>
+<p style="color:var(--muted);font-size:14px">Cohorts: Riaz, Hugo, Liu and Gide (melanoma); IMmotion150 and Choueiri (renal); IMvigor210 (urothelial); Anders (TNBC); Prince (pancreatic). The response labels are the cBioPortal/iAtlas harmonised RESPONDER calls. Pooled AUC is computed on within-cohort ranks; the CI comes from a bootstrap stratified by cohort.</p>
+</section>
+<section>
+<h2>Figures</h2>
+<figure><img loading="lazy" src="figures/fig1_loco_forest.png" alt="Pooled leave-one-cohort-out AUC (within-cohort ranks) with cohort-stratified bootstrap 95% CI; 820 patients, 9 cohorts. Blue: pre-specified programme + TMB/ITH model; red: the deep network; grey: published fixed scores."><figcaption>Pooled leave-one-cohort-out AUC (within-cohort ranks) with cohort-stratified bootstrap 95% CI; 820 patients, 9 cohorts. Blue: pre-specified programme + TMB/ITH model; red: the deep network; grey: published fixed scores.</figcaption></figure><figure><img loading="lazy" src="figures/fig2_cohort_heatmap.png" alt="Held-out AUC in each cohort. All methods do well on Gide melanoma; the two smallest cohorts are near chance for most."><figcaption>Held-out AUC in each cohort. All methods do well on Gide melanoma; the two smallest cohorts are near chance for most.</figcaption></figure><figure><img loading="lazy" src="figures/fig3_ablation.png" alt="ImmunoEvo-Net ablations: removing the cohort adversary or the evolution features, or replacing the knowledge programmes with random gene sets, changes little. The network does not transfer in any form."><figcaption>ImmunoEvo-Net ablations: removing the cohort adversary or the evolution features, or replacing the knowledge programmes with random gene sets, changes little. The network does not transfer in any form.</figcaption></figure><figure><img loading="lazy" src="figures/fig4_attribution.png" alt="Programmes the network relies on (gradient × activation): mainly non-immune hallmarks that track tissue and cohort, which explains why it fails to transfer."><figcaption>Programmes the network relies on (gradient × activation): mainly non-immune hallmarks that track tissue and cohort, which explains why it fails to transfer.</figcaption></figure><figure><img loading="lazy" src="figures/fig5_evolution.png" alt="Tumour evolution from clinical panels. Left: MSK pan-cancer stratified Cox (HR per SD). Middle: 5×5 CV C-index. Right: single-feature response AUC in two external cohorts."><figcaption>Tumour evolution from clinical panels. Left: MSK pan-cancer stratified Cox (HR per SD). Middle: 5×5 CV C-index. Right: single-feature response AUC in two external cohorts.</figcaption></figure><figure><img loading="lazy" src="figures/fig6_on_treatment.png" alt="77 paired pre/on-treatment biopsies: responders lose tumour-intrinsic programmes (mTORC1, glycolysis, pigmentation, UPR; FDR < 0.05, same sign in all 3 cohorts)."><figcaption>77 paired pre/on-treatment biopsies: responders lose tumour-intrinsic programmes (mTORC1, glycolysis, pigmentation, UPR; FDR < 0.05, same sign in all 3 cohorts).</figcaption></figure>
+</section>
+<section><p style="color:var(--muted);font-size:14px">Research prototype: not a medical device and not for clinical decisions. Data: public ICB cohorts via cBioPortal and CRI iAtlas; MSK-IMPACT ICB (Samstein et al., Nat Genet 2019). © 2026 Husain Naqvi. All Rights Reserved.</p></section>
+</main>
+</body>
+</html>

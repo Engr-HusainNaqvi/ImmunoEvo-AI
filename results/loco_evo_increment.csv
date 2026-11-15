@@ -1,0 +1,3 @@
+with_evo,without,n,auc_with,auc_without
+LR-programs+evo,LR-programs,587,0.6142382309048976,0.5907000407000407
+ImmunoEvo-Net,Net w/o evolution,587,0.5431216931216931,0.5372405372405372
